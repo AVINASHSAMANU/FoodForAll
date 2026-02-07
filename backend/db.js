@@ -5,7 +5,10 @@ const db = mysql.createConnection({
     user: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "237R1A6755",
     database: process.env.DB_NAME || "foodforall",
-    port: process.env.DB_PORT || 3306
+    port: process.env.DB_PORT || 3306,
+    ssl: {
+        rejectUnauthorized: false // Required for some cloud providers like Aiven if no CA cert is provided
+    }
 });
 
 db.connect((err) => {
