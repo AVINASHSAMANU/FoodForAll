@@ -6,8 +6,9 @@ const db = mysql.createConnection({
     password: process.env.DB_PASSWORD || "237R1A6755",
     database: process.env.DB_NAME || "foodforall",
     port: process.env.DB_PORT || 3306,
+    connectTimeout: 20000, // 20 seconds
     ssl: {
-        rejectUnauthorized: false // Required for some cloud providers like Aiven if no CA cert is provided
+        rejectUnauthorized: false
     }
 });
 
