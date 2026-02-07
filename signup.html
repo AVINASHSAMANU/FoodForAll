@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | FoodForAll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4f7f9;
+        }
+
+        .signup-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0D3B66;
+            margin-bottom: 20px;
+        }
+
+        .role-selector {
+            display: flex;
+            background: #f0f2f5;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 4px;
+        }
+
+        .role-btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #666;
+            transition: 0.3s;
+        }
+
+        .role-btn.active {
+            background: #0D3B66;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            padding-right: 45px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            /* Adjusted to sit beside input below label */
+            cursor: pointer;
+            color: #888;
+            font-size: 1.2rem;
+            z-index: 5;
+            transition: 0.3s;
+        }
+
+        .toggle-password:hover {
+            color: #0D3B66;
+        }
+
+        .input-group input:focus {
+            border-color: #0D3B66;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #0D3B66;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #1a5c96;
+        }
+
+        .footer-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-link a {
+            color: #0D3B66;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-container">
+        <h2>Create Account</h2>
+
+        <div class="role-selector">
+            <button class="role-btn active" onclick="switchRole('donor')">Donor</button>
+            <button class="role-btn" onclick="switchRole('organization')">Organization</button>
+        </div>
+
+        <form id="signupForm">
+            <input type="hidden" id="role" value="donor">
+
+            <!-- USER FIELDS -->
+            <div id="userFields">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Enter username">
+                </div>
+            </div>
+
+            <!-- ADMIN FIELDS -->
+            <div id="adminFields" class="hidden">
+                <div class="input-group">
+                    <label>Organization Name</label>
+                    <input type="text" id="orgName" placeholder="Enter NGO/Govt Org Name">
+                </div>
+                <div class="input-group">
+                    <label>Government ID (Registration No)</label>
+                    <input type="text" id="govId" placeholder="Enter Govt ID">
+                </div>
+            </div>
+
+            <!-- COMMON FIELDS -->
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email" required placeholder="Enter email">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" required placeholder="Create password">
+                <span class="toggle-password" id="togglePassword">👁️</span>
+            </div>
+
+            <button type="submit" class="btn-submit">Sign Up</button>
+            <p class="footer-link">Already have an account? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+
+    <script>
+        const roleInput = document.getElementById('role');
+        const userFields = document.getElementById('userFields');
+        const adminFields = document.getElementById('adminFields');
+        const usernameInput = document.getElementById('username');
+        const orgNameInput = document.getElementById('orgName');
+        const govIdInput = document.getElementById('govId');
+        const btns = document.querySelectorAll('.role-btn');
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        function switchRole(role) {
+            roleInput.value = role;
+            btns.forEach(b => b.classList.remove('active'));
+            if (role === 'donor') {
+                btns[0].classList.add('active');
+                userFields.classList.remove('hidden');
+                adminFields.classList.add('hidden');
+                usernameInput.setAttribute('required', 'true');
+                orgNameInput.removeAttribute('required');
+                govIdInput.removeAttribute('required');
+            } else {
+                btns[1].classList.add('active');
+                userFields.classList.add('hidden');
+                adminFields.classList.remove('hidden');
+                usernameInput.removeAttribute('required');
+                orgNameInput.setAttribute('required', 'true');
+                govIdInput.setAttribute('required', 'true');
+            }
+        }
+
+        // On load: check query param for role
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roleParam = urlParams.get('role');
+            if (roleParam === 'organization' || roleParam === 'donor') {
+                switchRole(roleParam);
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const role = roleInput.value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const body = { role, email, password };
+
+            if (role === 'donor') {
+                body.username = usernameInput.value;
+            } else {
+                body.orgName = orgNameInput.value;
+                body.govId = govIdInput.value;
+            }
+
+            try {
+                const res = await fetch('/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+
+                const contentType = res.headers.get("content-type");
+                if (!contentType || !contentType.includes("application/json")) {
+                    throw new Error("Server returned non-JSON response (" + res.status + "). Please restart the server.");
+                }
+
+                const data = await res.json();
+
+                if (data.success) {
+                    alert(data.message);
+                    window.location.href = `login.html?role=${role}`;
+                } else {
+                    alert(data.message);
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error: ' + err.message);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

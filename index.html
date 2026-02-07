@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FoodForAll | Spread Love Through Food</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #fff;
+            color: #333;
+        }
+
+        /* NAVBAR (BLUE) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 60px;
+            background: #0D3B66;
+            /* BLUE */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #e8f1ff;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: #ffffff;
+            background: #ff7a18;
+            /* ORANGE BOX */
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092");
+            background-size: cover;
+            background-position: center;
+            min-height: 85vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #f5f5f5;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            color: #ddd;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 70px 60px;
+            text-align: center;
+        }
+
+        .compassion {
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            color: #555;
+        }
+
+        /* COMPASSION CARDS */
+        .compassion-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 45px;
+            align-items: start;
+        }
+
+        .comp-card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            /* equal height for all cards */
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 260px;
+            /* fixed height */
+            overflow: hidden;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* fully visible and fits box */
+            display: block;
+        }
+
+        .comp-card h3 {
+            margin: 16px 0 6px;
+            font-size: 1.2rem;
+        }
+
+        .comp-card p {
+            flex-grow: 1;
+            /* keep content evenly spaced */
+            padding-bottom: 20px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* 3 STEPS */
+        .quick-donate {
+            background: linear-gradient(120deg, #FFB347, #71a588);
+            /* Gradient background added */
+            color: #fff;
+            border-radius: 15px;
+        }
+
+        .quick-donate h2 {
+            display: inline-block;
+            background: linear-gradient(120deg, #ffd194, #ffb347);
+            padding: 6px 16px;
+            border-radius: 6px;
+        }
+
+        .quick-donate p {
+            color: #fff;
+            /* text color changed for better contrast */
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .step {
+            background: #ffffff;
+            padding: 30px 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            color: #333;
+        }
+
+        .step span {
+            font-size: 2rem;
+        }
+
+        .step h3 {
+            margin: 12px 0;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* BUTTON */
+        .btn-primary {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            background: #ff7a18;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #e56b12;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // Auth Check
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user) {
+            window.location.href = '/'; // Redirect to login
+        }
+
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = '/';
+        }
+    </script>
+    <nav class="navbar">
+        <a href="index.html" class="logo">🍲 FoodForAll</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="venues.html">Venues</a>
+            <a href="charities.html">Charities</a>
+            <a href="charities.html">Charities</a>
+            <a href="dashboard.html" id="dashboardLink">Dashboard</a>
+            <a href="#" id="myDonationsLink" onclick="openDonationsModal()">My Donations</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+            <a href="#" onclick="logout()" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+    <script>
+        // Hide Dashboard link for non-organizations
+        const dashboardLink = document.getElementById('dashboardLink');
+        if (user && user.role !== 'organization') {
+            dashboardLink.style.display = 'none';
+        }
+    </script>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Don’t Waste Food,<br>
+                Spread Love ❤️
+            </h1>
+            <p>
+                Turning surplus food from events into warm meals for
+                old-age homes and orphanages.
+            </p>
+        </div>
+    </section>
+
+    <section class="section compassion">
+        <h2>Every Meal Can Change a Life</h2>
+        <p>Food wasted after celebrations can become hope for someone else.</p>
+
+        <div class="compassion-cards">
+            <!-- Card 1 -->
+            <div class="comp-card">
+                <div class="img-wrapper">
+                    <img src="image5.avif" alt="Care for Elderly">
+                </div>
+                <h3>Care for the Elderly</h3>
+                <p>Nutritious meals delivered with respect.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="comp-card">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136" alt="Feed Young Dreams">
+                </div>
+                <h3>Feed Young Dreams</h3>
+                <p>Healthy food for orphaned children.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="comp-card">
+                <div class="img-wrapper">
+                    <img src="images1.jpg" alt="Reduce Food Waste">
+                </div>
+                <h3>Reduce Food Waste</h3>
+                <p>Every surplus meal finds purpose.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section quick-donate">
+        <h2>Donate Food in 3 Simple Steps</h2>
+        <p>Quick, genuine, and impactful.</p>
+
+        <div class="steps">
+            <div class="step">
+                <span>🍱</span>
+                <h3>Enter Food Details</h3>
+                <p>Quantity, location, and pickup time.</p>
+            </div>
+
+            <div class="step">
+                <span>📍</span>
+                <h3>Auto-Match Charity</h3>
+                <p>Nearest orphanage or old-age home.</p>
+            </div>
+
+            <div class="step">
+                <span>🚐</span>
+                <h3>Pickup & Delivery</h3>
+                <p>Food safely delivered to those in need.</p>
+            </div>
+        </div>
+
+        <a href="event.html" class="btn-primary">Start Donation</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 FoodForAll | Saving Food • Serving Humanity</p>
+    </footer>
+
+
+
+    <!-- DONATION STATUS MODAL -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDonationsModal()">&times;</span>
+            <h2>My Donations - Status</h2>
+            <div id="donationList" class="donation-list">
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .donation-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .status-pending {
+            background: #ffeeba;
+            color: #856404;
+        }
+
+        .status-accepted {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-declined {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+
+    <!-- NOTIFICATION MODAL -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeNotificationModal()">&times;</span>
+            <h2 style="color: #0D3B66; margin-bottom: 15px;">📢 Updates</h2>
+            <div id="notificationList" class="donation-list"></div>
+            <button class="btn-primary" onclick="closeNotificationModal()"
+                style="width: 100%; margin-top: 20px;">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById("donationModal");
+        const notifModal = document.getElementById("notificationModal");
+        const donationList = document.getElementById("donationList");
+        const notifList = document.getElementById("notificationList");
+
+        function openDonationsModal() {
+            modal.style.display = "block";
+            fetchMyDonations();
+        }
+
+        function closeDonationsModal() {
+            modal.style.display = "none";
+        }
+
+        function closeNotificationModal() {
+            notifModal.style.display = "none";
+        }
+
+        // Close logic for both modals
+        window.onclick = function (event) {
+            if (event.target == modal) modal.style.display = "none";
+            if (event.target == notifModal) notifModal.style.display = "none";
+        }
+
+        async function fetchMyDonations() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) return;
+
+            try {
+                const res = await fetch(`/api/events?username=${user.username}`);
+                const data = await res.json();
+
+                if (data.length === 0) {
+                    donationList.innerHTML = "<p>No donations found.</p>";
+                    return;
+                }
+
+                let html = "";
+                data.forEach(d => {
+                    const statusClass = `status-${(d.status || 'Pending').toLowerCase()}`;
+                    html += `
+                        <div class="donation-item">
+                            <div>
+                                <strong>${d.venueName}, ${d.city}</strong><br>
+                                <small>${d.eventDate.split('T')[0]} • ${d.portions} portions</small>
+                            </div>
+                            <span class="status-badge ${statusClass}">${d.status || 'Pending'}</span>
+                        </div>
+                    `;
+                });
+                donationList.innerHTML = html;
+            } catch (err) {
+                console.error(err);
+                donationList.innerHTML = "<p>Error loading donations.</p>";
+            }
+        }
+
+        // NOTIFICATION LOGIC
+        async function checkNotifications() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) return;
+
+            try {
+                const res = await fetch(`/api/notifications?username=${user.username}`);
+                const data = await res.json();
+
+                if (data.length > 0) {
+                    let html = "";
+                    const idsToMark = [];
+
+                    data.forEach(d => {
+                        idsToMark.push(d.id);
+                        const statusEmoji = d.status === 'Accepted' ? '✅' : '❌';
+                        html += `
+                            <div class="donation-item" style="background: #f9f9f9; border-radius: 8px;">
+                                <div style="width: 100%;">
+                                    <p style="margin-bottom: 5px;"><strong>${statusEmoji} Donation Update</strong></p>
+                                    <p style="color: #555; font-size: 0.95rem;">
+                                        Your donation at <strong>${d.venueName}</strong> was <strong class="status-${d.status.toLowerCase()}">${d.status}</strong>.
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    notifList.innerHTML = html;
+                    notifModal.style.display = "block";
+
+                    // MARK AS SEEN
+                    await fetch('/api/notifications/mark-seen', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ ids: idsToMark })
+                    });
+                }
+            } catch (err) {
+                console.error("Error checking notifications:", err);
+            }
+        }
+
+        const myDonationsLink = document.getElementById('myDonationsLink');
+        // Hide "My Donations" link for organizations as they have dashboard
+        if (user && user.role === 'organization') {
+            if (myDonationsLink) myDonationsLink.style.display = 'none';
+        } else if (!user) {
+            if (myDonationsLink) myDonationsLink.style.display = 'none';
+        } else {
+            // Only check notifications if regular user
+            checkNotifications();
+        }
+    </script>
+</body>
+
+</html>

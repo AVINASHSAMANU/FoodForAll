@@ -1,0 +1,15 @@
+# Common Node.js ignores
+node_modules/
+npm-debug.log
+.env
+.DS_Store
+
+# Backend specific
+backend/node_modules/
+backend/.env
+
+# Large images/media if they are purely assets
+# *.jpg
+# *.avif
+# *.png
+# *.gif

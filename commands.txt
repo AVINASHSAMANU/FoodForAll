@@ -1,0 +1,4 @@
+to run backend:-1)cd backend
+2)npm start
+
+in crome open:- http://localhost:3000

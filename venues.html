@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Venues | FoodForAll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="venues.html" class="active">Venues</a>
+        <a href="charities.html">Charities</a>
+        <a href="event.html">Submit Event</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <!-- VENUES SECTION -->
+    <section class="section">
+        <h2>Available Venues</h2>
+        <p class="section-subtitle">Restaurants and function halls donating surplus food.</p>
+
+        <!-- SEARCH & FILTER -->
+        <div class="search-filter">
+            <input type="text" id="searchInput" placeholder="Search by name or city">
+            <select id="typeFilter">
+                <option value="all">All Types</option>
+                <option value="hall">Function Hall</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="hotel">Hotel</option>
+
+            </select>
+        </div>
+
+        <!-- VENUE CARDS -->
+        <div class="card-grid" id="venueGrid">
+                <!-- https://images.unsplash.com/photo-1555396273-367ea4eb4db5-->
+            <div class="venue-card" data-name="Royal Grand Function Hall" data-city="Hyderabad" data-type="hall">
+                <img src="image6.jpg" alt="Royal Grand Function Hall">
+                <div class="venue-content">
+                    <h3>Royal Grand Function Hall</h3>
+                    <span class="badge hall">Function Hall</span>
+                    <p>📍 Hyderabad</p>
+                    <p><strong>Capacity:</strong> 800 people</p>
+                    <div class="capacity-bar">
+                        <div class="capacity-fill" style="width:80%"></div>
+                    </div>
+                    <div class="venue-actions">
+                        <a href="tel:9876543210" class="btn-call">📞 Call</a>
+                        <a href="event.html" class="btn-donate">🍲 Donate Food</a>
+                    </div>
+                </div>
+            </div>
+                    <!-- https://images.unsplash.com/photo-1552566626-52f8b828add9-->
+            <div class="venue-card" data-name="Spice Garden Restaurant" data-city="Bengaluru" data-type="restaurant">
+                <img src="image7.jpg" alt="Spice Garden Restaurant">
+                <div class="venue-content">
+                    <h3>Spice Garden Restaurant</h3>
+                    <span class="badge restaurant">Restaurant</span>
+                    <p>📍 Bengaluru</p>
+                    <p><strong>Capacity:</strong> 200 people</p>
+                    <div class="capacity-bar">
+                        <div class="capacity-fill" style="width:40%"></div>
+                    </div>
+                    <div class="venue-actions">
+                        <a href="tel:9123456780" class="btn-call">📞 Call</a>
+                        <a href="event.html" class="btn-donate">🍲 Donate Food</a>
+                    </div>
+                </div>
+            </div>
+              <!-- https://images.unsplash.com/photo-1566073771259-6a8506099945-->
+            <div class="venue-card" data-name="Hotel Paradise" data-city="Chennai" data-type="hotel">
+                <img src="image8.jpg" alt="Hotel Paradise">
+                <div class="venue-content">
+                    <h3>Hotel Paradise</h3>
+                    <span class="badge hotel">Hotel</span>
+                    <p>📍 Chennai</p>
+                    <p><strong>Capacity:</strong> 500 people</p>
+                    <div class="capacity-bar">
+                        <div class="capacity-fill" style="width:60%"></div>
+                    </div>
+                    <div class="venue-actions">
+                        <a href="tel:9000000000" class="btn-call">📞 Call</a>
+                        <a href="event.html" class="btn-donate">🍲 Donate Food</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- JS: SEARCH & FILTER -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const typeFilter = document.getElementById('typeFilter');
+        const venueGrid = document.getElementById('venueGrid');
+        const cards = venueGrid.getElementsByClassName('venue-card');
+
+        function filterVenues() {
+            const searchText = searchInput.value.toLowerCase();
+            const type = typeFilter.value;
+
+            Array.from(cards).forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const city = card.getAttribute('data-city').toLowerCase();
+                const cardType = card.getAttribute('data-type');
+
+                if ((name.includes(searchText) || city.includes(searchText)) &&
+                    (type === 'all' || type === cardType)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterVenues);
+        typeFilter.addEventListener('change', filterVenues);
+    </script>
+
+</body>
+
+</html>

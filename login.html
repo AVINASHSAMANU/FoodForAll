@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | FoodForAll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            background: #f4f7f9;
+        }
+
+        /* LEFT SIDE - IMAGE */
+        .left-panel {
+            flex: 1;
+            background:
+                linear-gradient(rgba(13, 59, 102, 0.7), rgba(13, 59, 102, 0.4)),
+                url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1470&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .left-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .left-content p {
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* RIGHT SIDE - FORM */
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            padding: 50px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .login-box h2 {
+            font-size: 2.2rem;
+            color: #0D3B66;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .login-box .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        /* ROLE SELECTOR */
+        .role-switch {
+            display: flex;
+            background: #f0f2f5;
+            padding: 6px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .role-option {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .role-option.active {
+            color: #fff;
+            background: #0D3B66;
+            box-shadow: 0 4px 10px rgba(13, 59, 102, 0.3);
+        }
+
+        /* FORM INPUTS */
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 2px solid #eef0f3;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+            background: #f9fbfc;
+        }
+
+        .input-group input:focus {
+            border-color: #0D3B66;
+            background: #fff;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 1.2rem;
+            z-index: 5;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #888;
+            font-size: 1.2rem;
+            z-index: 5;
+            transition: 0.3s;
+        }
+
+        .toggle-password:hover {
+            color: #0D3B66;
+        }
+
+        /* BUTTON */
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0D3B66, #1a5c96);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 20px rgba(13, 59, 102, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(13, 59, 102, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 500;
+            display: none;
+            background: #fde8e7;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .left-panel {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LEFT IMAGE PANEL -->
+    <div class="left-panel">
+        <div class="left-content">
+            <h1>Spread Love<br>Through Food.</h1>
+            <p>Connect with local communities and help us bridge the gap between surplus and scarcity. Every meal
+                matters.</p>
+        </div>
+    </div>
+
+    <!-- RIGHT FORM PANEL -->
+    <div class="right-panel">
+        <div class="login-box">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Please login to your account</p>
+
+            <form id="loginForm">
+                <!-- Role Selector -->
+                <div class="role-switch">
+                    <div class="role-option active" data-value="donor">Donor</div>
+                    <div class="role-option" data-value="organization">Organization</div>
+                    <input type="hidden" id="role" value="donor">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-icon">📧</span>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="toggle-password" id="togglePassword">👁️</span>
+                </div>
+
+                <button type="submit">Login</button>
+
+                <div style="margin-top: 15px; text-align: center; font-size: 0.9rem;">
+                    <a href="forgot-password.html" style="color: #666; text-decoration: none;">Forgot Password?</a>
+                </div>
+                <div style="margin-top: 10px; text-align: center; font-size: 0.9rem;">
+                    Don't have an account? <a href="signup.html"
+                        style="color: #0D3B66; font-weight: 600; text-decoration: none;">Sign Up</a>
+                </div>
+
+                <p class="error-msg" id="errorMsg">Invalid credentials!</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Role Switch Logic
+        const roleOptions = document.querySelectorAll('.role-option');
+        const roleInput = document.getElementById('role');
+
+        function switchRole(role) {
+            roleOptions.forEach(opt => {
+                const val = opt.getAttribute('data-value');
+                if (val === role) {
+                    opt.classList.add('active');
+                    roleInput.value = val;
+                } else {
+                    opt.classList.remove('active');
+                }
+            });
+        }
+
+        roleOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                switchRole(option.getAttribute('data-value'));
+            });
+        });
+
+        // On load: check query param for role
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roleParam = urlParams.get('role');
+            if (roleParam === 'organization' || roleParam === 'donor') {
+                switchRole(roleParam);
+            }
+        });
+
+        // Form Submission
+        const form = document.getElementById('loginForm');
+        const errorMsg = document.getElementById('errorMsg');
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const role = roleInput.value;
+
+            try {
+                const res = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password, role })
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    localStorage.setItem('user', JSON.stringify({
+                        username: data.user.username,
+                        role: data.user.role,
+                        email: data.user.email
+                    }));
+                    window.location.href = data.redirect;
+                } else {
+                    // Redirect to signup if credentials are invalid, preserving the role category
+                    window.location.href = `signup.html?role=${role}`;
+                }
+            } catch (err) {
+                console.error(err);
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Server connection error';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1511 @@
+/* =======================
+   GLOBAL RESET
+======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* =======================
+   NAVBAR
+======================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(90deg, #ff7043, #ff9800);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #000;
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+ /* about page */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a.active,
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+.btn-primary {
+    background: #27ae60;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #1e8e4f;
+}
+
+/* =======================
+   HERO SECTION (HOME)
+======================= */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+    ),
+    url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: #ff9800;
+    color: #000;
+    font-size: 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+    background: #ff4757;
+    color: white !important;
+    border-radius: 6px;
+    padding: 6px 14px;
+    margin-left: 20px;
+    transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #ff6b81;
+}
+
+/* =======================
+   SECTIONS
+======================= */
+.section {
+    padding: 60px 10%;
+    text-align: center;
+}
+.section-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+}
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #ff7043;
+}
+
+.section p {
+    font-size: 18px;
+    color: #555;
+}
+
+
+/* =======================
+   CITY CHECK
+======================= */
+#city-check {
+    background: #f9f9f9;
+}
+
+#city-select {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.city-stats {
+    margin-top: 30px;
+    background: #fff;
+    display: inline-block;
+    padding: 25px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.venue-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.venue-card:hover {
+    transform: translateY(-10px);
+}
+
+.venue-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.venue-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.venue-content h3 {
+    margin-bottom: 5px;
+}
+
+/* BADGES */
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.badge.hall {
+    background: #ff9800;
+    color: #000;
+}
+
+.badge.restaurant {
+    background: #4caf50;
+    color: #fff;
+}
+/* HOTEL BADGE */
+.badge.hotel {
+    background-color: #6f42c1; /* Purple */
+    color: #fff;
+}
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* OPTIONAL: HOTEL CARD HOVER EFFECT */
+.venue-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+
+
+/* ACTION BUTTONS */
+.venue-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn-call,
+.btn-donate {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-call {
+    background: #e0e0e0;
+    color: #000;
+}
+
+.btn-donate {
+    background: #ff7043;
+    color: #fff;
+}
+
+
+/* =======================
+   COMPASSION CARDS
+======================= */
+.compassion {
+    background: #fff7f0;
+}
+
+.compassion-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.comp-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comp-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.comp-card img {
+    width: 100%;
+    height: 260px;          /* SAME HEIGHT FOR ALL */
+    object-fit: contain;   /* FULL IMAGE VISIBLE */
+    background: #f8f8f8;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+
+/* =======================
+   HOW IT WORKS
+======================= */
+.steps {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.step {
+    background: #ffffff;
+    width: 260px;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.comp-card h3 {
+    margin-top: 18px;
+    font-size: 22px;
+    color: #ff7043;
+}
+
+.comp-card p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* =======================
+   QUICK DONATE CTA
+======================= */
+.quick-donate {
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.quick-donate h2 {
+    font-size: 40px;
+}
+
+/* =======================
+   CARDS (VENUES & CHARITIES)
+======================= */
+.card-grid {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #ffffff;
+    width: 260px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.card h3 {
+    color: #27ae60;
+    margin-bottom: 8px;
+}
+
+/* =======================
+   FORMS (EVENT & CONTACT)
+======================= */
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 120px;
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/* =======================
+   TABLE (DASHBOARD)
+======================= */
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+table th,
+table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background: #27ae60;
+    color: white;
+}
+
+.status.offered {
+    color: orange;
+    font-weight: bold;
+}
+
+.status.picked {
+    color: green;
+    font-weight: bold;
+}
+
+/* =======================
+   FOOTER
+======================= */
+.footer {
+    background: #222;
+    color: #ccc;
+    padding: 25px;
+    text-align: center;
+}
+/* ABOUT PAGE */
+.about-section {
+    padding: 70px 12%;
+    background: #fffaf5;
+    text-align: center;
+}
+
+/* MISSION */
+.mission-text {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* ABOUT CARDS */
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.about-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+.about-card h3 {
+    color: #ff7043;
+    margin-bottom: 10px;
+}
+
+/* HOW IT WORKS */
+.how-title {
+    margin-bottom: 20px;
+}
+
+.how-it-works {
+    max-width: 600px;
+    margin: 0 auto 60px;
+    text-align: left;
+    font-size: 17px;
+}
+
+.how-it-works li {
+    margin-bottom: 12px;
+}
+
+/* THANK YOU / VOTE OF THANKS */
+.thank-you {
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    color: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    font-size: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+.about-hero {
+    height: 65vh;
+    background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.6)
+    ),
+    url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.about-hero h1 {
+    font-size: 52px;
+}
+
+.about-hero p {
+    margin-top: 15px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* MAIN */
+.about-main {
+    padding: 80px 12%;
+    background: #fff7f0;
+}
+
+/* MISSION */
+.about-mission {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-mission p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    color: #555;
+}
+
+/* FEATURES */
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-bottom: 70px;
+}
+
+.feature-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+}
+
+.feature-box h3 {
+    color: #ff7043;
+    margin-bottom: 10px;
+}
+
+/* HOW IT WORKS */
+.how-section {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.how-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.step {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 17px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* QUOTE */
+.about-quote {
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    color: #fff;
+    padding: 45px;
+    border-radius: 25px;
+    font-size: 19px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* FOOTER */
+.footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+}
+/* THANK YOU BOX */
+.thank-you-box {
+    margin-top: 40px;
+    padding: 30px;
+    background: #fff7f0;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.thank-you-box img {
+    width: 180px;
+    margin-bottom: 15px;
+}
+
+/* HIDE */
+.hidden {
+    display: none;
+}
+/* DASHBOARD */
+.dashboard {
+    max-width: 1100px;
+    margin: auto;
+}
+/* CARDS */
+.progress-card,
+.table-card,
+.donor-card {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #2ecc71);
+    border-radius: 10px;
+}
+
+/* TABLE */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #f4f4f4;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* STATUS */
+.status {
+    font-weight: bold;
+}
+
+.status.accepted {
+    color: #ff9800;
+}
+
+.status.picked {
+    color: #4CAF50;
+}
+
+/* DONORS */
+.donor-list {
+    list-style: none;
+    padding: 0;
+}
+
+.donor-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    h2 {
+        text-align: center;
+    }
+
+    .donor-list li {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+/* charities  css*/
+/* GENERAL STYLES */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: #ff5722;
+    padding: 15px 0;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    background: #ff7043;
+}
+
+/* SECTION */
+.section {
+    padding: 60px 12%;
+}
+
+.charities-section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ff5722;
+}
+
+.charities-section p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* SEARCH & FILTER */
+.search-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.search-filter input, .search-filter select {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 250px;
+    transition: all 0.3s;
+}
+
+.search-filter input:focus, .search-filter select:focus {
+    outline: none;
+    border-color: #ff5722;
+}
+
+/* CARD GRID */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* CHARITY CARD */
+.charity-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.charity-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.charity-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* ensures the image fits nicely */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.charity-card h3 {
+    color: #ff5722;
+    margin: 15px 0 8px;
+}
+
+.charity-card .mission,
+.charity-card .impact,
+.charity-card .rating {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #555;
+}
+
+.charity-card .btn-primary {
+    display: inline-block;
+    margin: 12px 0 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #ff5722;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.charity-card .btn-primary:hover {
+    background: #ff7043;
+    transform: translateY(-2px);
+}
+
+/* CALL TO ACTION */
+.cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.cta .btn-primary {
+    padding: 12px 25px;
+    font-size: 16px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 14px;
+}
+/* venue css*/
+/* GENERAL STYLES */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: #ff5722;
+    padding: 15px 0;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    background: #ff7043;
+}
+
+/* SECTION HEADINGS */
+.section {
+    padding: 60px 12%;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #ff5722;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 16px;
+}
+
+/* CARD GRID */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* SIMPLE CARD */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* VENUE CARDS */
+.venue-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.venue-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+}
+
+/* VENUE IMAGE */
+.venue-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* VENUE CONTENT */
+.venue-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.venue-content h3 {
+    color: #ff5722;
+    margin-bottom: 8px;
+}
+
+.venue-content p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.hall {
+    background: #ff7043;
+}
+
+.restaurant {
+    background: #4caf50;
+}
+
+/* VENUE ACTIONS */
+.venue-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-call, .btn-donate {
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-call {
+    background: #2196f3;
+}
+
+.btn-donate {
+    background: #ff5722;
+}
+
+.btn-call:hover {
+    background: #42a5f5;
+    transform: translateY(-2px);
+}
+
+.btn-donate:hover {
+    background: #ff7043;
+    transform: translateY(-2px);
+}
+/* event css*/
+.form-card {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.event-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.event-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.event-form input,
+.event-form select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.success-box {
+    text-align: center;
+    background: #e6fff1;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 5%;
+    }
+
+    .venue-actions {
+        flex-direction: column;
+    }
+
+    .btn-call, .btn-donate {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 5%;
+    }
+
+    .search-filter input, .search-filter select {
+        width: 100%;
+    }
+}
+/* index paage*/
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    background-color: #0D3B66; /* corporate navy blue */
+    color: #fff;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none; /* remove underline */
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    color: #F4D35E; /* highlight color */
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+    background: 
+        linear-gradient(rgba(13, 59, 102, 0.6), rgba(13, 59, 102, 0.6)),
+        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    color: #fff;
+    padding: 100px 60px;
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* ---------- COMPASSION SECTION ---------- */
+.compassion {
+    background-color: #FAFAFA;
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.compassion h2 {
+    color: #0D3B66;
+    margin-bottom: 20px;
+}
+
+.compassion p {
+    color: #555;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.compassion-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.comp-card {
+    background-color: #F4D35E;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    transition: transform 0.3s;
+}
+
+.comp-card:hover {
+    transform: translateY(-10px);
+}
+
+.comp-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.comp-card h3 {
+    margin-bottom: 10px;
+    color: #0D3B66;
+}
+
+.comp-card p {
+    color: #333;
+}
+
+/* ---------- STEPS SECTION ---------- */
+.steps-section {
+    background-color: #fff;
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.steps-section h2 {
+    color: #0D3B66;
+    margin-bottom: 15px;
+}
+
+.steps-section p {
+    color: #555;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.step-card {
+    background-color: #EE6C4D;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 20px;
+    width: 220px;
+    transition: transform 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+}
+
+.step-card span {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.step-card h3 {
+    margin-bottom: 10px;
+}
+
+.step-card p {
+    font-size: 0.95rem;
+}
+
+/* ---------- BUTTON ---------- */
+.btn-primary {
+    background-color: #0D3B66;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #F4D35E;
+    color: #0D3B66;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    background-color: #0D3B66;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    .comp-card img {
+        max-height: 260px;
+    }
+}
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 36px;
+    }
+
+    .about-main {
+        padding: 60px 8%;
+    }
+}
+@media (max-width: 600px) {
+    .section {
+        padding: 50px 8%;
+    }
+
+    .thank-you-box img {
+        width: 140px;
+    }
+}
+/* Workflow steps simulation */
+.workflow-step {
+    background: #ff9800;
+    color: #fff;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
+}
+/* EVENT PAGE IMPROVEMENTS */
+.section.highlight {
+    background: linear-gradient(to right, #ffecd2, #fcb69f); /* soft gradient */
+    padding: 70px 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    background: #ffffffcc; /* semi-transparent white */
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+.event-form input,
+.event-form select,
+.event-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-form input:focus,
+.event-form select:focus,
+.event-form textarea:focus {
+    border-color: #ff7a18;
+    box-shadow: 0 0 8px rgba(255, 122, 24, 0.5);
+    outline: none;
+}
+
+#submitBtn {
+    background: linear-gradient(120deg, #ff7a18, #ffb347);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#submitBtn:hover {
+    background: linear-gradient(120deg, #ffb347, #ff7a18);
+    transform: scale(1.05);
+}
+
+.success-box {
+    background: #d4edda;
+    color: #155724;
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.section.highlight {
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    padding: 40px 20px;   /* REDUCED HEIGHT */
+    display: flex;
+    justify-content: center;
+}
+.form-card {
+    background: #ffffffcc;
+    padding: 25px 25px;   /* REDUCED */
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    max-width: 550px;
+    width: 100%;
+}
+.event-form input,
+.event-form select,
+.event-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;   /* REDUCED GAP */
+    border-radius: 8px;
+}
+.form-card:hover {
+    transform: none;   /* STOP HEIGHT JUMP */
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Event | Food Donation Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="venues.html">Venues</a>
+        <a href="charities.html">Charities</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <!-- EVENT + LEFTOVER DETAILS FORM -->
+    <section class="section highlight">
+        <div class="form-card">
+            <h2>Submit Event & Leftover Details</h2>
+            <p class="section-subtitle">
+                Help reduce food waste by sharing surplus food details.
+            </p>
+
+            <!-- Fixed form: Added correct name attributes -->
+            <form id="eventForm" class="event-form" novalidate>
+                <label>Venue Name</label>
+                <input type="text" name="venueName" placeholder="Eg: Royal Grand Hall" required>
+
+                <label>City</label>
+                <input type="text" name="city" placeholder="Eg: Hyderabad" required>
+
+                <label>Event Date</label>
+                <input type="date" name="eventDate" required>
+
+                <label>Event End Time</label>
+                <input type="time" name="endTime" required>
+
+                <label>Estimated Portions</label>
+                <input type="number" name="portions" placeholder="Eg: 150" required>
+
+                <label>Food Type</label>
+                <select name="foodType" required>
+                    <option value="">Select</option>
+                    <option value="Veg">Veg</option>
+                    <option value="Non-Veg">Non-Veg</option>
+                    <option value="Mixed">Mixed</option>
+                </select>
+
+                <button type="submit" class="btn-primary" id="submitBtn">Submit Event</button>
+            </form>
+
+            <!-- SUCCESS MESSAGE -->
+            <div class="success-box hidden" id="successBox">
+                <h3>✅ Event Submitted Successfully</h3>
+                <p>
+                    Thank you for contributing to food redistribution.<br>
+                    Our partner charities will contact you soon.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.getElementById('eventForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+
+            // Validation
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Collect form data
+            // Collect form data
+            const user = JSON.parse(localStorage.getItem('user'));
+            const formData = {
+                venueName: form.venueName.value,
+                city: form.city.value,
+                eventDate: form.eventDate.value,
+                endTime: form.endTime.value,
+                portions: form.portions.value,
+                foodType: form.foodType.value,
+                username: user ? user.username : 'Anonymous'
+            };
+
+            try {
+                // Send to backend
+                const response = await fetch('http://localhost:3000/api/events', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    // Show success
+                    form.classList.add('hidden');
+                    document.getElementById('successBox').classList.remove('hidden');
+                    form.reset();
+
+                    // Hide message after 4s
+                    setTimeout(() => {
+                        document.getElementById('successBox').classList.add('hidden');
+                        form.classList.remove('hidden');
+                    }, 4000);
+                } else {
+                    alert(result.message || 'Failed to submit event.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error connecting to server. Make sure backend is running.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

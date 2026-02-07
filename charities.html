@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charities | FoodForAll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="venues.html">Venues</a>
+    <a href="charities.html" class="active">Charities</a>
+    <a href="dashboard.html">Dashboard</a>
+</nav>
+
+<section class="section charities-section">
+    <!-- HEADER -->
+    <h2>Charities Supported by FoodForAll</h2>
+    <p>Browse and support old-age homes & orphanages near you.</p>
+
+    <!-- SEARCH & FILTER -->
+    <div class="search-filter">
+        <input type="text" id="searchInput" placeholder="Search by name, location, or cause">
+        <select id="filterSelect">
+            <option value="all">All Types</option>
+            <option value="old-age">Old-Age Home</option>
+            <option value="orphanage">Orphanage</option>
+        </select>
+    </div>
+
+    <!-- CHARITY CARDS -->
+    <div class="card-grid" id="charityGrid">
+
+        <div class="charity-card" data-type="old-age">
+            <img src="image2.jpg" alt="Sunrise Old Age Home">
+            <h3>Sunrise Old Age Home</h3>
+            <p class="mission">Providing nutritious meals and care for the elderly.</p>
+            <p class="impact">Fed 500+ elderly citizens</p>
+            <p class="rating">⭐ 4.5/5</p>
+            <button class="btn-primary">Donate</button>
+        </div>
+
+        <div class="charity-card" data-type="orphanage">
+            <img src="image3.jpg" alt="Hope Children Orphanage">
+            <h3>Hope Children Orphanage</h3>
+            <p class="mission">Providing healthy meals and education to orphaned children.</p>
+            <p class="impact">Fed 300+ children</p>
+            <p class="rating">⭐ 4.7/5</p>
+            <button class="btn-primary">Donate</button>
+        </div>
+
+        <div class="charity-card" data-type="old-age">
+            <img src="image4.jpg" alt="Golden Years Home">
+            <h3>Golden Years Home</h3>
+            <p class="mission">Supporting elderly with food, health, and companionship.</p>
+            <p class="impact">Fed 250+ elderly citizens</p>
+            <p class="rating">⭐ 4.6/5</p>
+            <button class="btn-primary">Donate</button>
+        </div>
+
+    </div>
+
+    <!-- CALL TO ACTION -->
+    <div class="cta">
+        <p>Want to support a charity? Browse our list and donate now!</p>
+        <a href="#charityGrid" class="btn-primary">Donate Today</a>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <p>© 2026 FoodForAll | Saving Food • Serving Humanity</p>
+</footer>
+
+<!-- JAVASCRIPT FOR SEARCH & FILTER -->
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const filterSelect = document.getElementById('filterSelect');
+    const charityGrid = document.getElementById('charityGrid');
+    const cards = charityGrid.getElementsByClassName('charity-card');
+
+    function filterCharities() {
+        const searchText = searchInput.value.toLowerCase();
+        const filterType = filterSelect.value;
+
+        Array.from(cards).forEach(card => {
+            const name = card.querySelector('h3').textContent.toLowerCase();
+            const type = card.getAttribute('data-type');
+            if ((name.includes(searchText)) && (filterType === 'all' || filterType === type)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    searchInput.addEventListener('input', filterCharities);
+    filterSelect.addEventListener('change', filterCharities);
+</script>
+
+</body>
+</html>

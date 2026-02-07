@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | Food Donation Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="contact.html" class="active">Contact</a>
+</nav>
+
+<!-- CONTACT SECTION -->
+<section class="section">
+    <h2>Contact & Support</h2>
+
+    <!-- CONTACT FORM -->
+    <form class="contact-form" id="contactForm" novalidate>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <textarea name="message" placeholder="Message / Partnership Inquiry" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+
+    <!-- THANK YOU MESSAGE -->
+    <div class="thank-you-box hidden" id="thankYouBox" aria-live="polite">
+        <img src="https://media.giphy.com/media/3o7abB06u9bNzA8lu8/giphy.gif" alt="Thank you">
+        <h3>Thank You! 🙏</h3>
+        <p>
+            Your message has been sent successfully.<br>
+            We appreciate your support in spreading kindness.
+        </p>
+    </div>
+</section>
+
+<!-- JAVASCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const thankYouBox = document.getElementById("thankYouBox");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Hide form & show thank you
+        form.classList.add("hidden");
+        thankYouBox.classList.remove("hidden");
+
+        // Clear form values
+        form.reset();
+
+        // ⏳ After 3 seconds, hide thank you & show form again
+        setTimeout(() => {
+            thankYouBox.classList.add("hidden");
+            form.classList.remove("hidden");
+        }, 3000); // 3000ms = 3 seconds
+    });
+});
+</script>
+<script>
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+        name: contactForm.name.value,
+        email: contactForm.email.value,
+        message: contactForm.message.value
+    };
+
+    try {
+        const response = await fetch('http://localhost:3000/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+        contactForm.reset();
+    } catch (error) {
+        console.error(error);
+        alert('Error sending message.');
+    }
+});
+</script>
+
+</body>
+</html>

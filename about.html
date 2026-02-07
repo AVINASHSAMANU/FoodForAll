@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | FoodForAll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+    <div class="about-hero-content">
+        <h1>FoodForAll</h1>
+        <p>
+            Turning surplus food into hope, dignity, and smiles.<br>
+            Connecting surplus food with hungry hearts.
+        </p>
+    </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="about-main">
+
+    <div class="about-mission">
+        <h2>Our Mission</h2>
+        <p>
+            We reduce food waste by connecting surplus food from
+            restaurants and function halls to nearby old-age homes
+            and orphanages — ensuring no meal goes wasted.
+        </p>
+    </div>
+
+    <div class="about-features">
+        <div class="feature-box">
+            <h3>🍽️ Save Food</h3>
+            <p>Prevent good food from being thrown away.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>❤️ Share Love</h3>
+            <p>Feed children and elders with dignity.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>🌍 Build Humanity</h3>
+            <p>Create a more caring and responsible society.</p>
+        </div>
+    </div>
+
+    <div class="how-section">
+        <h2>How It Works</h2>
+        <div class="how-steps">
+            <div class="step">1️⃣ Venues list surplus food</div>
+            <div class="step">2️⃣ Nearest charities get notified</div>
+            <div class="step">3️⃣ Food is collected and served</div>
+        </div>
+    </div>
+
+    <div class="about-quote">
+        <p>
+            “By donating food, you are not just feeding people,
+            you are spreading kindness and hope.
+            <br><strong>Thank you for being a part of this mission.</strong> 🙏”
+        </p>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <p>© 2026 FoodForAll | Saving Food • Serving Humanity</p>
+</footer>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop page refresh
+
+    // Hide form
+    this.style.display = "none";
+
+    // Show thank you message
+    document.getElementById("thankYouBox").classList.remove("hidden");
+});
+</script>
+
+
+</body>
+</html>

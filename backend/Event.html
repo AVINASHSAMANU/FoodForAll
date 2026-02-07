@@ -1,0 +1,28 @@
+<form id="eventForm">
+    <input type="text" name="event_name" placeholder="Event Name" required>
+    <input type="text" name="venue" placeholder="Venue">
+    <input type="date" name="date" required>
+    <input type="time" name="time">
+    <input type="number" name="portions" placeholder="Estimated Portions">
+    <button type="submit">Submit Event</button>
+</form>
+
+<script>
+const form = document.getElementById('eventForm');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    const response = await fetch('/submit-event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+
+    const result = await response.text();
+    alert(result); // shows success or error
+});
+</script>
